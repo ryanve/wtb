@@ -1,6 +1,6 @@
 {
   "name": "wtb",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Parse dimensions",
   "main": "wtb.js",
   "author": "Ryan Van Etten",
