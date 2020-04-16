@@ -1,0 +1,35 @@
+{
+  "name": "wtb",
+  "version": "0.0.0",
+  "description": "Parse dimensions",
+  "main": "wtb.js",
+  "author": "Ryan Van Etten",
+  "license": "0BSD",
+  "scripts": {
+    "pretest": "node -v",
+    "test": "node test"
+  },
+  "homepage": "https://ryanve.github.io/wtb",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanve/wtb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanve/wtb/issues"
+  },
+  "keywords": [
+    "parse",
+    "parser",
+    "scaling",
+    "dimensions",
+    "dimension",
+    "rectangle",
+    "aspect",
+    "ratio",
+    "width",
+    "height",
+    "area",
+    "fun",
+    "box"
+  ]
+}

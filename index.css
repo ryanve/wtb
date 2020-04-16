@@ -1,0 +1,23 @@
+::selection { color: #000; background: SandyBrown }
+html { color: #222; background: PeachPuff }
+[href] { color: #000; background: #bae; text-decoration-color: PeachPuff }
+[href]:hover { background: Plum }
+
+* { box-sizing: border-box }
+
+html {
+  font-family: monospace;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0 auto 0 0;
+  padding: 2rem;
+  max-width: 50em;
+}
+
+dfn {
+  font-style: inherit;
+  font-weight: bold;
+}
