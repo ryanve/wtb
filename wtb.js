@@ -15,24 +15,21 @@
   }
 
   function wtb(given) {
-    var m, h, w
+    var m
+    m = typeof given == "number"
+      ? [given]
+      : typeof given == "string"
+      ? given.match(dimension)
+      : typeof given == "boolean"
+      ? [given]
+      : given instanceof Array
+      ? slice.call(given)
+      : given
+      ? [got(given, width), got(given, height)]
+      : m
 
-    if (typeof given == "number")
-      m = [given || 0]
-    else if (typeof given == "string")
-      m = given.match(dimension)
-    else if (typeof given == "boolean")
-      m = [given]
-    else if (given instanceof Array)
-      m = slice.call(given)
-    else if (given)
-      m = [
-        got(given, width),
-        got(given, height)
-      ]
-
-    h = m && m.pop()
-    w = m && m.pop()
+    var h = m && m.pop()
+    var w = m && m.pop()
     h = h || h != 0 && w
     w = w || w != 0 && h
     h = +h || 0
