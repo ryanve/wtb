@@ -1,3 +1,4 @@
+/** @preserve npm.im/wtb */
 !function() {
   var api = wtb
   var dimension = /[\deE.]+/g
