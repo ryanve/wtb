@@ -2,35 +2,33 @@
 !function() {
   var api = wtb
   var dimension = /[\deE.]+/g
+  var match = "".match
   var slice = [].slice
   var area = "area"
   var aspect = "aspect"
   var height = "height"
   var width = "width"
 
-  function got(o, k) {
+  function get(o, k) {
     var v = o[k]
-    v = typeof v == "function" ? v.call(o) : v
-    v = +v
-    return v || v == 0 ? v : void v
+    return typeof v == "function" ? v.call(o) : v
   }
 
   function wtb(given) {
-    var m
-    m = typeof given == "number"
-      ? [given]
-      : typeof given == "string"
-      ? given.match(dimension)
-      : typeof given == "boolean"
-      ? [given]
-      : given instanceof Array
-      ? slice.call(given)
-      : given
-      ? [got(given, width), got(given, height)]
-      : m
+    var num = +given
+    var met = num === num || !given
+    ? [num]
+    : given.match === match
+    ? given.match(dimension)
+    : given instanceof Array
+    ? slice.call(given)
+    : [
+        get(given, width),
+        get(given, height)
+      ]
 
-    var h = m && m.pop()
-    var w = m && m.pop()
+    var h = met && met.pop()
+    var w = met && met.pop()
     h = h || h != 0 && w
     w = w || w != 0 && h
     h = +h || 0
