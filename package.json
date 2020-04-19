@@ -10,6 +10,7 @@
     "test": "node test"
   },
   "homepage": "https://ryanve.github.io/wtb",
+  "funding": "https://github.com/sponsors/ryanve",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ryanve/wtb.git"
