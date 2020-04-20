@@ -1,5 +1,6 @@
 /** @preserve npm.im/wtb */
 !function() {
+  var free
   var api = wtb
   var dimension = /[\deE.]+/g
   var match = "".match
@@ -10,15 +11,14 @@
   var width = "width"
   var own = {}.hasOwnProperty
 
-  function get(o, k) {
-    var ban = o instanceof Object && !own.call(o, k)
-    if (ban) return
-    var v = o[k]
+  function get(safe, o, k) {
+    var v = safe || own.call(o, k) ? o[k] : free
     return typeof v == "function" ? v.call(o) : v
   }
 
   function wtb(given) {
-    var sob = typeof given == "object" != given instanceof Object
+    var gob = given instanceof Object
+    var sob = typeof given == "object" != gob
     var num = sob && given ? NaN : +given
     var met = num === num || !given
     ? [num]
@@ -27,8 +27,8 @@
     : given instanceof Array
     ? slice.call(given)
     : [
-        get(given, width),
-        get(given, height)
+        get(!gob, given, width),
+        get(!gob, given, height)
       ]
 
     var h = met && met.pop()
