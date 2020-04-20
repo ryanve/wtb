@@ -104,6 +104,17 @@ magic.h = 5
 ok(wtb(magic).area === 15)
 log("magic works")
 
+const parent = { width: 3, height: () => 5 }
+const child = Object.create(parent)
+ok(wtb(child).area === 15)
+log("inheritable")
+
+const antipattern = Object.prototype
+antipattern.width = 2
+ok(wtb({height: 3}).area === 9)
+delete antipattern.width
+log("prototype safe")
+
 ok(wtb(true).area === 1)
 ok(wtb(true).aspect === 1)
 ok(wtb(true).width === 1)
