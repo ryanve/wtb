@@ -10,7 +10,7 @@ npm install wtb --save
 const wtb = require("wtb")
 ```
 
-### `wtb(dimensions=0)`
+### `wtb(dimensions=0)  `
 
 * dimensions are accepted in many formats shown in examples
 * defaults to square
@@ -18,7 +18,7 @@ const wtb = require("wtb")
 * handles any input without throwing errors
 * string delimiter is any non numeric portion
 * supports JavaScript number formats including integers, decimals, scientific notation
-* dimension support includes dimensions methods like in a jQuery object like `wtb($(window))`
+* plain objects support owned values while null objects support any depth
 * returns an object with calculated properties whose values range from `0` to `Infinity`
   * `area` is the calculated `width * height`
   * `aspect` is the calculated aspect ratio `width / height`
@@ -46,6 +46,7 @@ wtb([30])
 wtb([30, 30])
 wtb({ width: 30 })
 wtb({ height: 30 })
+wtb({ width: () => 30 })
 ```
 
 they return a square object
@@ -72,6 +73,7 @@ wtb("3e2x2e2")
 wtb([30, 20])
 wtb([30, 30])
 wtb({ width: 30, height: 20 })
+wtb({ width: () => 30, height: () => 20 })
 ```
 
 they return a rectangular object

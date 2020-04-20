@@ -94,26 +94,15 @@ ok(wtb({width:"333", height:"22"}).width === 333)
 ok(wtb({width:"333", height:"22"}).height === 22)
 log("2d objects work")
 
-function mage() {}
-const model = mage.prototype
-model.width = function() { return this.w }
-model.height = function() { return this.h }
-const magic = new mage
-magic.w = 3
-magic.h = 5
+const magic = {}
+const trick = Object.create(null)
+const thief = Object.create(magic)
+magic.width = trick.width = () => 3
+magic.height = trick.height = () => 5
 ok(wtb(magic).area === 15)
-log("magic works")
-
-const parent = { width: 3, height: () => 5 }
-const child = Object.create(parent)
-ok(wtb(child).area === 15)
-log("inheritable")
-
-const antipattern = Object.prototype
-antipattern.width = 2
-ok(wtb({height: 3}).area === 9)
-delete antipattern.width
-log("prototype safe")
+ok(wtb(trick).area === 15)
+ok(wtb(thief).area === 0)
+log("magic safe")
 
 ok(wtb(true).area === 1)
 ok(wtb(true).aspect === 1)
