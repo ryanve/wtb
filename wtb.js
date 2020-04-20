@@ -8,8 +8,13 @@
   var aspect = "aspect"
   var height = "height"
   var width = "width"
+  var probe = Object.getPrototypeOf
+  var prone = Object.prototype
+  var own = prone.hasOwnProperty
 
   function get(o, k) {
+    var ban = probe && prone === probe(o) && !own.call(o, k)
+    if (ban) return
     var v = o[k]
     return typeof v == "function" ? v.call(o) : v
   }
