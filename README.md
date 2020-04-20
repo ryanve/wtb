@@ -10,7 +10,7 @@ npm install wtb --save
 const wtb = require("wtb")
 ```
 
-### `wtb(dimensions=0)  `
+### `wtb(dimensions=0)`
 
 * dimensions are accepted in many formats shown in examples
 * defaults to square
