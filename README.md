@@ -96,7 +96,7 @@ they return a rectangular object
 const orientation = wtb().aspect > 1 ? "landscape" : "portrait"
 ```
 
-### compatiblity
+### [c11y](https://s9a.page/c11y)
 
 * compatible in Node.js or CommonJS or any web browser
 * uses universal module definition pattern
